@@ -14,7 +14,7 @@ Assuming you have a CSS module with classes defined like so:
 }
 ```
 
-Normally we have to access and use the module classes like this:
+Typically, we access and utilize module classes in the following manner:
 
 ```javascript
 import styles from "./styles.module.css";
@@ -22,7 +22,7 @@ import styles from "./styles.module.css";
 <div className={`${styles.heading} ${styles.paragraph}`}>***</div>;
 ```
 
-**_It is okay. But it gets very messy and tedious when templating the classNames like this. But with easy-css-modules we can get rid of this hastle._**
+**_It's acceptable, but templating classNames in this manner can become messy and tedious. However, with easy-css-modules, we can eliminate this hassle._**
 
 ## Usage
 
@@ -30,26 +30,36 @@ import styles from "./styles.module.css";
 
 ```javascript
 import styles from "./styles.module.css";
+import useModuleClasses from "easy-css-modules";
 ```
 
-2. Intiate the hook like this. It returns a funtion that tekes a space-separated string of class names (e.g., ".heading .paragraph") as argument. You can assign the hooked function in any variable or can assign it to `const $_` varibale for stylist and convenient usage.
+2. 
+Initialize the `useModuleClasses` hook (not specific to React; it functions with any JavaScript framework) as follows: it returns a function that accepts a space-separated string of class names (e.g., ".heading .paragraph") as an argument. You can assign the hooked function to any variable or assign it to the const `$_` variable for stylistic and convenient usage.
 
 ```javascript
 const $_ = useModuleClasses(styles);
 ```
 
-3. Then you can use the returned function or `$_` function to dynamically apply these classes.
+3. Then, utilize the returned function or the `$_` function to dynamically apply these classes.
 
 ```javascript
+// 1. Import styles from css module and useModuleClasses from easy-css-modules package
 import styles from "./styles.module.css";
 import { useModuleClasses } from "easy-css-modules";
 
+// 2. Initialize the useModuleClasses hook
 const $_ = useModuleClasses(styles);
 
+// 3. Use the classes
 <div className={$_(".heading .paragraph")}>***</div>;
 
 // className will be a string containing the corresponding class names from the styles object
 ```
+
+### Note
+
+> - You are free to utilize any class naming convention, extending beyond camelCase, as exemplified by `.class__using--bem`.
+> - The `.` preceding the classes isn't obligatory for this utility package to function. You can denote classes with a leading dot, as in `$_(".first-class .second")`, or without it, like `$_("first-class second")`. However, employing the dot notation makes it easier to discern class references at a glance.
 
 ## Installation
 
@@ -65,12 +75,20 @@ pnpm install easy-css-modules
 
 ## Parameters
 
+```javascript
+const $_ = useModuleClasses(styleObject);
+
+$_(classNames);
+```
+
 - `styleObject:` The CSS module classes object.
 
 - `classNames:` A space-separated string of class names (e.g., ".heading .paragraph").
   Returns
   A function that takes a string of class names and returns a string of corresponding CSS module classes.
 
-## Contributing
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue if you have suggestions or find a bug.
+## GitHub
+
+- [easy-css-modules](https://github.com/nazmus767921/easy-css-modules)
+
