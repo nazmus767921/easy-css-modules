@@ -1,14 +1,30 @@
 {
   "name": "easy-css-modules",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.4",
+  "description": "A lightweight TypeScript utility designed to simplify the usage of CSS module classes in your projects.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nazmus767921/easy-css-modules.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "react",
+    "Solid",
+    "javascript",
+    "css",
+    "classes",
+    "classname",
+    "classnames",
+    "util",
+    "utility",
+    "cssModule",
+    "css module"
+  ],
+  "author": "Nazmus Sakib",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.28",
     "typescript": "^5.4.2"
