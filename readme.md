@@ -4,10 +4,11 @@ A lightweight TypeScript utility designed to simplify the usage of CSS module cl
 
 ## Changelog
 
-v1.0.4
+v2.0.0
 
-- The `useModuleClasses` is deprecated and will be removed in V1.1.0 due to conflicts with React Hooks naming conventions. Please switch to `utilizeModuleClasses` instead.
+- The `useModuleClasses` is deprecated and will be removed in future updates due to conflicts with React Hooks naming conventions. Please switch to `utilizeModuleClasses` instead.
 - Now, You can access global classes alongside module classes outside the CSS module without extra templating. Simply, prepend a '@' before global class, as demonstrated: `$_(".moduleClass .@globalClass)`
+- Automatic removal of duplicate classes, extra spaces within class names, class name validation.
 
 ## Why Easy-CSS-Modules?
 
