@@ -39,6 +39,7 @@ import styles from "./styles.module.css";
 - Automatic removal of duplicate classes.
 - Elimination of extra spaces within class names.
 - Robust class name validation, triggering an error on encountering an invalid class name.
+- Optimized for high performance.
 
 ## Getting Started
 
@@ -104,3 +105,7 @@ $_(classNames);
 - `classNames:` A space-separated string of class names (e.g., ".heading .paragraph").
   Returns
   A function that takes a string of class names and returns a string of corresponding CSS module classes.
+
+## LICENSE [MIT](https://github.com/nazmus767921/easy-css-modules/blob/main/LISENSE)
+
+The MIT License (MIT) | Copyright (c) 2024 Nazmus Sakib
