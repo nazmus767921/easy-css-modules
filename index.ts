@@ -5,7 +5,7 @@ type CSSModuleClasses = { [className: string]: string };
 
 export const useModuleClasses = (styleObject: CSSModuleClasses) => {
   console.warn(
-    'The "useModuleClasses" is deprecated and will be removed in V1.1.0 due to conflicts with React Hooks naming conventions. Please switch to "utilizeModuleClasses" instead.'
+    'The "useModuleClasses" is deprecated and will be removed in future updates due to conflicts with React Hooks naming conventions. Please switch to "utilizeModuleClasses" instead.'
   );
   return (classNames: string) => getModuleClasses(styleObject, classNames);
 };
