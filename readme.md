@@ -4,10 +4,18 @@ A lightweight TypeScript utility designed to simplify the usage of CSS module cl
 
 ## Changelog
 
+v2.0.2
+
+- Throws an error and logs the error stack to the console if no class names are provided or if `$_()` is invoked without class names. Additionally, an error is thrown for invalid CSS class names, such as `.123className`.
+
+v2.0.1
+
+- Minor changes and bug fixes.
+
 v2.0.0
 
 - The `useModuleClasses` is deprecated and will be removed in future updates due to conflicts with React Hooks naming conventions. Please switch to `utilizeModuleClasses` instead.
-- Now, You can access global classes alongside module classes outside the CSS module without extra templating. Simply, prepend a '@' before global class, as demonstrated: `$_(".moduleClass .@globalClass)`
+- Now, You can access global classes alongside module classes outside the CSS module without extra templates. Simply, prepend a '@' before global class, as demonstrated: `$_(".moduleClass .@globalClass)`
 - Automatic removal of duplicate classes, extra spaces within class names, class name validation.
 
 ## Why Easy-CSS-Modules?
@@ -106,6 +114,78 @@ $_(classNames);
 - `classNames:` A space-separated string of class names (e.g., ".heading .paragraph").
   Returns
   A function that takes a string of class names and returns a string of corresponding CSS module classes.
+
+## Additional Tips
+
+##### You can add these custom snippets in your vs code snippets settings to make your dev experience much more easy and faster.
+
+1. Navigate to `File > Preferences > Configure User Snippets`
+
+2. Copy the JSON code provided below and paste it into both `JavascriptReact(.jsx)` and `TypescriptReact(.tsx)`.
+
+3. Save the file and start using the snippets by typing the prefix associated with each snippet.
+
+- And now you can type any html tag to get snippets suggestions with easy-css-module templates.
+
+```json
+"easy-css-module-template": {
+	"prefix": [
+		"div",
+		"h1", "h2", "h3", "h4", "h5", "h6",
+		"span",
+		"p",
+		"a",
+		"ul", "ol", "li",
+		"table", "tr", "td", "th",
+		"form", "input", "button",
+		"section", "article", "header", "footer",
+		"nav", "aside", "main",
+		"video", "audio",
+	],
+	"body": [
+		"<${TM_CURRENT_WORD} className={\\$_(\"${1}\")}>${2}</${TM_CURRENT_WORD}>"
+	],
+	"description": "Commented Section divider"
+},
+"easy-css-module-template-sct": {
+	"prefix": [
+		"img",
+		"br",
+		"hr",
+		"meta",
+		"link",
+		"input", // Can be self-closing for certain types (e.g., input type="hidden")
+		// Add more self-closing tags here
+	],
+	"body": [
+		"<${TM_CURRENT_WORD} className={\\$_(\"${1}\")} />${2}"
+	],
+	"description": "Commented Section divider"
+},
+"arrow-component-with-css-module": {
+	"scope": "javascript, typescript, typescriptreact, javascriptreact",
+	"prefix": [
+		"afce"
+	],
+	"body": [
+		"import styles from \"${1}\";",
+		"import  { utilizeModuleClasses } from \"easy-css-modules\";",
+		"",
+		"const \\$_ = utilizeModuleClasses(styles);",
+		"",
+		"const ${2:$TM_FILENAME_BASE} = () => {",
+		"  return (",
+		"    <>",
+		"      ${3}",
+		"    </>",
+		"  );",
+		"}",
+		"",
+		"export default ${2:$TM_FILENAME_BASE};"
+	],
+	"description": "Commented Section divider"
+}
+```
 
 ## LICENSE [MIT](https://github.com/nazmus767921/easy-css-modules/blob/main/LISENSE)
 

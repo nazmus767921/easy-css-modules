@@ -19,11 +19,18 @@ const getModuleClasses = (
   stylesObject: CSSModuleClasses,
   classNames: string
 ): string => {
-  const validateAndThrowError = (purifiedClass: string) => {
-    if (!validateCssClassName(purifiedClass)) {
-      throw new Error("Invalid CSS class name detected: " + purifiedClass);
-    }
-  };
+const validateAndThrowError = (purifiedClass: string) => {
+  if (!purifiedClass) {
+    const error = new Error("CSS class name cannot be empty.");
+    console.error(error.stack); // Log the stack trace
+    throw error;
+  }
+  if (!validateCssClassName(purifiedClass)) {
+    const error = new Error("Invalid CSS class name detected: " + purifiedClass);
+    console.error(error.stack); // Log the stack trace
+    throw error;
+  }
+};
 
   const classContainer: string[] = classNames
     .replace(/\s+/g, " ")
